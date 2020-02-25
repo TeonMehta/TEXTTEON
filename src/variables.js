@@ -1,44 +1,14 @@
-// VALUES
-
-
 
 // VARIABLES - BINDINGS
 
+let this_let_String = "Declares a block-scoped, local variable, optionally initializing it to a value.\n";
+var this_var_string = "Declares a variable, optionally initializing it to a value.";
+const this_const_string = "Declares a block-scoped, read-only named constant.";
 
 
-// STRINGS
+let _ten = 5 + 5;
+console.log(_ten);
 
-var string = "This is a string of text";
-var string2 = 'this is a string with single quotes';
-var string3 = `this is a string with backticks`;
-var string_newline =   `this will be on a \n new line`;
-var template_literal = `this can calculate half of 100 is ${100/2} `;
+// MULTI LINE DECLERATION
+let hundred = 100, twoHundred = 200;
 
-
-
-// NUMBERS
-var integer = 10;
-var float = 10.0;
-
-// ARITHMETIC
-
-var a = 1;
-var b = 2;
-
-function add(a,b) {
-let sum = a + b;
-return sum;
-}
-
-
-
-
-
-
-// BOOLEANS
-var boolean = true;
-var nothing = null;
-
-
-
-console.log(integer);
