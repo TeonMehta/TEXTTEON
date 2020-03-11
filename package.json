@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "serve": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,22 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.3",
+    "nodemon": "^2.0.2"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
   }
 }
