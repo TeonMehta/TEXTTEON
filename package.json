@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
@@ -42,7 +43,7 @@
     "delay": "2500",
     "env": {
       "NODE_ENV": "development",
-      "PORT": 4000
+      "PORT": 7000
     }
   }
 }
