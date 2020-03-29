@@ -8,19 +8,23 @@ module.exports = {
         app:            './src/index.js',
         // variables:      './src/variables.js',
     },
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: './dist',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].bundle.js',
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: "Webpack App"
+            title: "TEXTTEON",
+            template: './src/index.html',
+            //filename: './src/index.html'
         }),
     ],
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+        writeToDisk: true,
+        historyApiFallback: true
     },
     optimization: {
         splitChunks: {
@@ -53,12 +57,12 @@ module.exports = {
                 ],
             },
             {
-                test: /\.m?js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ['@babel/preset-env', "@babel/preset-react"]
                     }
                 }
             },

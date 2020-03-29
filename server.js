@@ -1,44 +1,38 @@
+// Imports
 const express =             require('express');
 const path =                require('path');
 const mongoose =            require('mongoose');
-// Modules
-const smartContactRouter =  require('./src/routes/smartContactRoutes');
-const adminRouter =         require('./src/routes/adminRoutes');
+const cors =                require('cors');
+const bodyParser =          require('body-parser');
+require('dotenv').config();
+// Server Variables
+const server =              express();
 
-const server = express();
-const port = process.env.PORT || 3000;
-const smartContactModel = require('./src/models/smartContactModel');
+const url = 'mongodb://localhost:27017';
+const port = process.env.PORT || 8888;
+// server.use(bodyParser.json());
+// server.use(bodyParser.urlencoded({ extended: true }));
+server.use(cors({ origin: true, credentials: true }));
+server.use(express.json({ extended: false }));
 
 
 
-// Views
-server.set('views','./src/views');
-server.set('view engine', 'ejs');
-//use Routes
-server.use('/smartcontacts', smartContactRouter);
-server.use('/admin', adminRouter);
-
-//  BASE ROUTE
-server.get('/', (req, res) => {
-    res.render('index', {
-        title: "TEXTTEON"
-    });
+//Connecting to MongoDB
+const uri = process.env.ATLAS_URI;
+const dbConnection = mongoose.connection;
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,});
+dbConnection.on('error', console.error.bind(console, 'connection error:'));
+dbConnection.once('open', () => {
+    console.log('CONNECTED TO MONGO DB');
 });
 
 
+const usersRouter = require('./src/routes/users');
+const smartContactsRouter = require('./src/routes/smart_contacts');
 
+server.use('/users', usersRouter);
+server.use('/smartcontacts', smartContactsRouter);
 
-
-
-
-
-
-
-
-
-
-
-// PORT
 server.listen(port, function () {
     console.log(`Server running on ${port}`);
 });

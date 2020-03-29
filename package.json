@@ -14,6 +14,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
@@ -27,12 +28,19 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.3",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
   },
   "nodemonConfig": {
     "restartable": "rs",
@@ -42,7 +50,8 @@
     "delay": "2500",
     "env": {
       "NODE_ENV": "development",
-      "PORT": 4000
-    }
+      "PORT": 8888
+    },
+    "proxy": "http://localhost:8888"
   }
 }
