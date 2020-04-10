@@ -14,7 +14,7 @@ export default class Navbar extends Component {
                         <Link to="/user">Create Users</Link>
                     </li>
                     <li>
-                        <Link to="/">SmartContacts</Link>
+                        <Link to="/smc">SmartContacts</Link>
                     </li>
                     <li>
                         <Link to="/create">Create Smart Contact</Link>
