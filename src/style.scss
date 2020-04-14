@@ -1,0 +1,14 @@
+$green: #01b075;
+ul {
+  text-align: center;
+
+  li {
+    display: inline;
+    list-style: none;
+    padding: 10px 30px;
+    a {
+      text-decoration: none;
+      color: $green;
+    }
+  }
+}
