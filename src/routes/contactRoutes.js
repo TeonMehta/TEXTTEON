@@ -14,12 +14,26 @@ contactRouter.route("/add").post((req, res) => {
   const last_name = req.body.last_name;
   const phone_number = req.body.phone_number;
   const email = req.body.email;
+  const instagram = req.body.instagram;
+  const twitter = req.body.twitter;
+  const snapchat = req.body.snapchat;
+  const gender = req.body.gender;
+  const industry = req.body.industry;
+  const job = req.body.job;
+  const interest = req.body.interest;
 
-  const newContact = new Contact({
+const newContact = new Contact({
     first_name,
     last_name,
     phone_number,
     email,
+    instagram,
+    twitter,
+    snapchat,
+    gender,
+    industry,
+    job,
+    interest,
   });
 
   newContact
@@ -33,18 +47,28 @@ contactRouter.route("/:id").get((req, res) => {
     .then((contacts) => res.json(contacts))
     .catch((err) => res.status(400).json("ERROR: " + err));
 });
-//
+// FIND SINGLE CONTACT AND DELETE
 contactRouter.route("/:id").delete((req, res) => {
   Contact.findByIdAndDelete(req.params.id)
     .then(() => res.json(`Deleted ID: ${req.params.id}`))
     .catch((err) => res.status(400).json("ERROR: " + err));
 });
-
+// EDIT SINGLE CONTACT
 contactRouter.route("/edit/:id").post((req, res) => {
-  Contact.findByIdAndUpdate(req.params.id)
-    .then((contact) => {
-      contact.name = req.body.name;
-      contact.number = req.body.number;
+  Contact.findById(req.params.id)
+    .then(contact => {
+      contact.first_name = req.body.first_name;
+      contact.last_name = req.body.last_name;
+      contact.phone_number = req.body.phone_number;
+      contact.email = req.body.email;
+      contact.instagram = req.body.instagram;
+      contact.twitter = req.body.twitter;
+      contact.snapchat = req.body.snapchat;
+      contact.gender = req.body.gender;
+      contact.industry = req.body.industry;
+      contact.job = req.body.job;
+      contact.interest = req.body.interest;
+      contact.intamacy = req.body.intamacy;
 
       contact
         .save()

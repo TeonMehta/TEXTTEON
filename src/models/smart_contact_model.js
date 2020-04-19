@@ -54,10 +54,10 @@ const contactSchema = new Schema(
     intimacy: Number,
     interest: [String],
     industry: {
-      type: String,
+      type: String
     },
     job: {
-      type: String,
+      type: String
     },
   },
   {
